@@ -1,0 +1,13 @@
+preproses:
+  input: data/raw_data/data.csv
+  output: data/preprossessd_data/dataset.csv
+
+
+
+train:
+  input: data/preprossessd_data/dataset.csv
+  saaved_model: models/model.pkl
+  random_state: 42
+  test_size : 0.2
+  n_estimators: 100
+  max_depth: 5
