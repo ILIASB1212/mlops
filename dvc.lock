@@ -1,0 +1,22 @@
+schema: '2.0'
+stages:
+  preproses:
+    cmd: python src/load_prepro.py
+    deps:
+    - path: data/raw_data/data.csv
+      hash: md5
+      md5: 739f3c9177b13d1c15aa060046cfb023
+      size: 23872
+    - path: src/load_prepro.py
+      hash: md5
+      md5: b209e46a3c64dc356e4e4c9aaea934fe
+      size: 471
+    params:
+      params.yaml:
+        preproses.input: data/raw_data/data.csv
+        preproses.output: data/preprossessd_data/dataset.csv
+    outs:
+    - path: data/preprossessd_data/dataset.csv
+      hash: md5
+      md5: 58e31c573524fd7d9454ad6f1dcf9af5
+      size: 24058

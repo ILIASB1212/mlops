@@ -1,0 +1,33 @@
+stages:
+  preproses:
+    cmd: python src/load_prepro.py
+    deps:
+    - data/raw_data/data.csv
+    - src/load_prepro.py
+    params:
+    - preproses.input
+    - preproses.output
+    outs:
+    - data/preprossessd_data/dataset.csv
+  train:
+    cmd: python src/train.py
+    deps:
+    - data/raw_data/data.csv
+    - src/train.py
+    params:
+    - train.input
+    - train.max_depth
+    - train.n_estimators
+    - train.random_state
+    - train.saaved_model
+    - train.test_size
+    outs:
+    - models/model.pkl
+    - models/scaling.pkl
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - data/raw_data/data.csv
+    - models/model.pkl
+    - models/scaling.pkl
+    - src/evaluate.py
