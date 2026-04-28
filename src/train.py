@@ -59,10 +59,10 @@ def train(data_path,model_path,random_state,n_estimators,max_depth,test_size):
 
         x_train_scaled, scaler=standard_scaling(x_train)
         param_grid = {
-        'n_estimators': [100, 200],
-        'max_depth': [5, 10, None],
-        'min_samples_split': [2, 5],
-        'min_samples_leaf': [1, 2]}
+        'n_estimators': [100, 200,300],
+        'max_depth': [5, 10, 15,None],
+        'min_samples_split': [2, 5,10],
+        'min_samples_leaf': [1, 2,3]}
 
         gs=hyper_parametre_tuning(x_train_scaled,y_train,param_grid)
         best_rf=gs.best_estimator_
